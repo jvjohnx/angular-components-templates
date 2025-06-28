@@ -22,7 +22,7 @@ export class ProductDetailsComponent {
   }
 
   addToCart(event: MouseEvent) {
-    setTimeout(() => this.availableInventory.update((p) => p - 1), 100);
+    this.availableInventory.update((p) => p - 1);
     this.cartService.addToCart(this.product());
   }
 

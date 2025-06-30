@@ -21,7 +21,7 @@ export class ProductDetailsComponent {
     return '/images/robot-parts/' + product.imageName;
   }
 
-  addToCart(event: MouseEvent) {
+  addToCart() {
     this.availableInventory.update((p) => p - 1);
     this.cartService.addToCart(this.product());
   }

@@ -10,7 +10,7 @@ import { CartService } from '../cart.service';
   styleUrl: './product-details.component.css'
 })
 export class ProductDetailsComponent {
-  product = input.required<IProduct>();
+  product = input<any>();
   availableInventory = signal(5);
 
   constructor(private cartService: CartService) {

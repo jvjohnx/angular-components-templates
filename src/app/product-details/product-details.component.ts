@@ -13,9 +13,7 @@ export class ProductDetailsComponent {
   product = input<any>();
   availableInventory = signal(5);
 
-  constructor(private cartService: CartService) {
-
-  }
+  constructor(private cartService: CartService) { }
 
   getImageUrl(product: IProduct) {
     return '/images/robot-parts/' + product.imageName;

@@ -1,16 +1,48 @@
+@let p = product();
+@let discountedPrice = p.price * (1 - p.discount) | currency;
+
 <div class="details">
-  <img [src]="getImageUrl(product())" [alt]="product().name" />
+  <img [src]="getImageUrl(p)" [alt]="p.name" />
   <div>
-    <h2>{{ product().name }}</h2>
-    <p>{{ product().description }}</p>
-    <p>Part Type: {{ product().category }}</p>
-    <p>Available Inventory: {{ availableInventory() }}</p>
+    <h2>{{ p.name }}</h2>
+    <p>{{ p.description }}</p>
+    <p>Part Type:
+      @switch (p.category){
+        @case ('heads') {
+          Head
+        }
+        @case ('bases') {
+          Base
+        }
+        @case ('arms') {
+          Arm
+        }
+        @case ('torsos') {
+          Torso
+        }
+        @default {
+          {{ p.category }}
+        }
+      }
+    </p>
+    @if (p.productNotes; as notes) {
+      <p>Product Notes: {{ notes }}</p>
+    }
+    <p>Available Inventory: {{ availableInventory() }}
+      @if ( availableInventory() === 1){
+        <span class="pill red">Only one left</span>
+      } @else if (availableInventory() < 4) {
+        <span class="pill yellow">Only few left</span>
+      } @else {
+        <span class="pill">Get yours today</span>
+      }
+    </p>
   </div>
 </div>
 <div class="price">
-  <p [ngClass]="getPriceClasses()">{{ product().price | currency }}</p>
-  @if (product().discount > 0) {
-  <p>{{ product().price * (1 - product().discount) | currency }}</p>
+  <p [ngClass]="getPriceClasses()">{{ p.price | currency }}</p>
+  @if (p.discount > 0) {
+  <p>{{ discountedPrice }}</p>
   }
   <button class="cta" (click)="addToCart()">Buy</button>
 </div>

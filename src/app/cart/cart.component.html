@@ -9,6 +9,8 @@
   <li>
     <bot-cart-item [product]="product" />
   </li>
+  } @empty {
+    <h2>You do not have items in your cart</h2>
   }
 </ul>
 <!--add a span here and move #checkout from button to span -->

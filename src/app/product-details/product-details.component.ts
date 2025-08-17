@@ -2,11 +2,13 @@ import { Component, signal, input } from '@angular/core';
 import { IProduct } from '../product.model';
 import { CurrencyPipe, NgClass } from '@angular/common';
 import { CartService } from '../cart.service';
+import { CategoryToPartTypePipe } from  '../category-to-part-type-pipe'
 
 @Component({
   selector: 'bot-product-details',
-  imports: [CurrencyPipe, NgClass],
+  imports: [CurrencyPipe, NgClass, CategoryToPartTypePipe ],
   templateUrl: './product-details.component.html',
+  standalone: true,
   styleUrl: './product-details.component.css'
 })
 export class ProductDetailsComponent {

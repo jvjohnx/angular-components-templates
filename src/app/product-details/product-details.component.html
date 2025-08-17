@@ -6,24 +6,7 @@
   <div>
     <h2>{{ p.name }}</h2>
     <p>{{ p.description }}</p>
-    <p>Part Type:
-      @switch (p.category){
-        @case ('heads') {
-          Head
-        }
-        @case ('bases') {
-          Base
-        }
-        @case ('arms') {
-          Arm
-        }
-        @case ('torsos') {
-          Torso
-        }
-        @default {
-          {{ p.category }}
-        }
-      }
+    <p>Part Type: {{p.category | categoryToPartType}}
     </p>
     @if (p.productNotes; as notes) {
       <p>Product Notes: {{ notes }}</p>

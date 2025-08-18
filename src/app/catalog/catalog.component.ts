@@ -18,7 +18,18 @@ export class CatalogComponent {
     //here mutation is used to push a new Product to the array
     //if this is used for creating a "pure" pipe with products, mutation of this array will not cause change detection
     // and the new product will not be rendered
-    this.products.push({
+    //
+    //The change detection issue is fixed by
+    // - removing the push that mutates the products array
+    // - create a new Array using spread operator
+    // - add the new IProduct object to the end of the array
+
+      // when working with custom pipes which takes an array or object, use immutability when making changes to array
+
+
+    this.products = [
+      ...this.products,
+      {
       "id": 6,
       "description": "Something new",
       "name": "New Arm",
@@ -26,6 +37,6 @@ export class CatalogComponent {
       "category": "arms",
       "price": 100,
       "discount": 0,
-    });
+    }];
   }
 }

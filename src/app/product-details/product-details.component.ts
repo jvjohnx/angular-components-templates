@@ -11,7 +11,11 @@ import {CategoryToPartTypePipe} from '../category-to-part-type-pipe'
   styleUrl: './product-details.component.css'
 })
 export class ProductDetailsComponent {
-  product = input<any>();
+  //tighten up input to make it specific type IProduct
+  //currently below product().discount is used we are getting error "Qualifier of 'discount' is possibly undefined "
+  //since product is necessary for this component, make it required by using input.required
+  //now the error below product().discount and in html are gone
+  product = input.required<IProduct>();
   availableInventory = signal(5);
 
   getImageUrl(product: IProduct) {

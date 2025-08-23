@@ -11,7 +11,10 @@
 <!-- background color odd/alternate rows, remove border line from first row   -->
   <li [class.alt]="odd" [class.top]="first" >
     <div>{{idx+1}} of {{count}}</div>
-    <bot-product-details [product]="product" />
+    <bot-product-details [product]="product">
+<!--      pass button below to product-details child component using Content Projection-->
+      <button class="cta" (click)="addToCart(product)">Buy</button>
+    </bot-product-details>
   </li>
   }
 </ul>

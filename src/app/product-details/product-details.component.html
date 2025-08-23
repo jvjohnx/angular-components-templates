@@ -27,5 +27,7 @@
   @if (p.discount > 0) {
   <p>{{ discountedPrice }}</p>
   }
-  <button class="cta" (click)="addToCart()">Buy</button>
+<!--  Removing the button below and pass in from parent catalog.component.html using Content Projection -->
+  <!--  <button class="cta" (click)="addToCart()">Buy</button>-->
+  <ng-content></ng-content>
 </div>

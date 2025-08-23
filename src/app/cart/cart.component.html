@@ -7,7 +7,12 @@
 <ul>
   @for (product of cartItems(); track product.id) {
   <li>
-    <bot-cart-item [product]="product" />
+<!--   remove cart-item  and use product-details instead -->
+<!--    <bot-cart-item [product]="product" />-->
+    <bot-product-details [product]="product">
+<!--      pass in remove button, originally it was in cart-item.component.html-->
+      <button class="remove" (click)="removeFromCart(product)">Remove</button>
+    </bot-product-details>
   </li>
   } @empty {
     <h2>You do not have items in your cart</h2>

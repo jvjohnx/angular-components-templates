@@ -1,16 +1,18 @@
-<div class="details">
-  <img [src]="getImageUrl(product())" [alt]="product().name" />
-  <div>
-    <h2>{{ product().name }}</h2>
-    <p>{{ product().description }}</p>
-    <p>Part Type: {{ product().category }}</p>
-  </div>
-</div>
-<div class="price">
-  <p [ngClass]="getPriceClasses()">{{
-    product().price | currency }}</p>
-  @if (product().discount > 0) {
-  <p>{{ product().price * (1 - product().discount) | currency }}</p>
-  }
-  <button class="cta" (click)="removeFromCart()">Remove</button>
-</div>
+<!--this component is no longer used-->
+<!--<div class="details">-->
+<!--  <img [src]="getImageUrl(product())" [alt]="product().name" />-->
+<!--  <div>-->
+<!--    <h2>{{ product().name }}</h2>-->
+<!--    <p>{{ product().description }}</p>-->
+<!--    <p>Part Type: {{ product().category }}</p>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<div class="price">-->
+<!--  <p [ngClass]="getPriceClasses()">{{-->
+<!--    product().price | currency }}</p>-->
+<!--  @if (product().discount > 0) {-->
+<!--  <p>{{ product().price * (1 - product().discount) | currency }}</p>-->
+<!--  }-->
+<!--&lt;!&ndash;  remove button from here and move it to parent cart.component.html.  &ndash;&gt;-->
+<!--&lt;!&ndash;  <button class="cta" (click)="removeFromCart()">Remove</button>&ndash;&gt;-->
+<!--</div>-->

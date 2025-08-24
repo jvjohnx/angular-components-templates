@@ -54,3 +54,11 @@
   background: #ffc107;
   color: #555;
 }
+
+/* moved  from child (product detail) to parent (catalog component)  for content projection to work */
+button.cta, button.remove {
+  padding: 10px;
+  width: 100px;
+  display: block;
+  margin: 10px auto;
+}

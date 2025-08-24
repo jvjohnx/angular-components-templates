@@ -29,5 +29,11 @@
   }
 <!--  Removing the button below and pass in from parent catalog.component.html using Content Projection -->
   <!--  <button class="cta" (click)="addToCart()">Buy</button>-->
-  <ng-content></ng-content>
+<!--  <ng-content></ng-content>-->
+  <!--  remove ng-content and use if/else on mode to display shop/buy or cart/remove  button-->
+  @if (mode() === 'shop'){
+    <button class="cta" (click)="add()">Buy</button>
+  } @else { //cart
+    <button class="remove" (click)="remove()">Remove</button>
+  }
 </div>

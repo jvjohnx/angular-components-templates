@@ -25,10 +25,3 @@ li {
   width: 120px;
 }
 
-/* moved  from child (product detail) to parent (catalog component)  for content projection to work */
-button.cta {
-  padding: 10px;
-  width: 100px;
-  display: block;
-  margin: 10px auto;
-}

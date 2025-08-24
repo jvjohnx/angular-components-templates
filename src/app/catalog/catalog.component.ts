@@ -9,6 +9,7 @@ import {CartService} from '../cart.service';
   selector: 'bot-catalog',
   imports: [ProductDetailsComponent, FilterByCategoryPipe],
   templateUrl: './catalog.component.html',
+  standalone: true,
   styleUrl: './catalog.component.css'
 })
 export class CatalogComponent {

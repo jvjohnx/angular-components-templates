@@ -11,10 +11,10 @@
 <!-- background color odd/alternate rows, remove border line from first row   -->
   <li [class.alt]="odd" [class.top]="first" >
     <div>{{idx+1}} of {{count}}</div>
-    <bot-product-details [product]="product">
-<!--      pass button below to product-details child component using Content Projection-->
-      <button class="cta" (click)="addToCart(product)">Buy</button>
-    </bot-product-details>
+<!--    in  (addToCart)="addToCart(product)  below, (addToCart) is the output event in the parent product-details -->
+<!--    and addToCart(product) is the method that is called -->
+    <bot-product-details [product]="product" (addToCart)="addToCart($event)"  mode="shop"/>
+<!--     <button class="cta" (click)="addToCart(product)">Buy</button>-->
   </li>
   }
 </ul>

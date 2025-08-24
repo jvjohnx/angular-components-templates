@@ -1,4 +1,4 @@
-import {Component, input, signal} from '@angular/core';
+import {Component, EventEmitter, input, Output, output, signal} from '@angular/core';
 import {IProduct} from '../product.model';
 import {CurrencyPipe, NgClass} from '@angular/common';
 import {CategoryToPartTypePipe} from '../category-to-part-type-pipe'
@@ -16,6 +16,15 @@ export class ProductDetailsComponent {
   //since product is necessary for this component, make it required by using input.required
   //now the error below product().discount and in html are gone
   product = input.required<IProduct>();
+
+  //define an event called addToCart bound by Parent component catalog-component so we can send the event to Parent
+  addToCart = output<IProduct>();
+  removeFromCart = output<IProduct>(); // @Output() removeFromCart = new EventEmitter<IProduct>();
+
+
+  //define a input property mode that can be a 'shop' or 'cart'.  default is 'shop'
+  mode = input<'shop' | 'cart'> ('shop');
+
   availableInventory = signal(5);
 
   getImageUrl(product: IProduct) {
@@ -23,8 +32,15 @@ export class ProductDetailsComponent {
   }
 
   // addToCart() moved to parent - CatalogComponent
-
   getPriceClasses() {
     return { strikethrough: this.product().discount > 0 }
+  }
+
+  add() {
+    this.addToCart.emit(this.product());
+  }
+
+  remove() {
+    this.removeFromCart.emit(this.product());
   }
 }

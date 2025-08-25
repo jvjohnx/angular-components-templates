@@ -1,0 +1,5 @@
+<!--#slider is a template reference variable. this is used to get the <input> elements value. value is always a string
+ +slider.value is used to Coerced it to string-->
+<!--[value]="sliderValue()" sets the input value -->
+<!-- (input)="sliderValue.set(+slider.value)", when (input) signal is triggered, it sets the sliderValue signal  -->
+<input #slider type="range" [value]="sliderValue()" (input)="sliderValue.set(+slider.value)"   min="1" max="5" />

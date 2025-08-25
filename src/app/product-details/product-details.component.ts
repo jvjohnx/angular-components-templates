@@ -2,10 +2,11 @@ import {Component, EventEmitter, input, Output, output, signal} from '@angular/c
 import {IProduct} from '../product.model';
 import {CurrencyPipe, NgClass} from '@angular/common';
 import {CategoryToPartTypePipe} from '../category-to-part-type-pipe'
+import {SliderComponent} from '../slider/slider.component';
 
 @Component({
   selector: 'bot-product-details',
-  imports: [CurrencyPipe, NgClass, CategoryToPartTypePipe ],
+  imports: [CurrencyPipe, NgClass, CategoryToPartTypePipe, SliderComponent],
   templateUrl: './product-details.component.html',
   standalone: true,
   styleUrl: './product-details.component.css'
@@ -25,6 +26,7 @@ export class ProductDetailsComponent {
   //define a input property mode that can be a 'shop' or 'cart'.  default is 'shop'
   mode = input<'shop' | 'cart'> ('shop');
 
+  favorite = signal(3);
   availableInventory = signal(5);
 
   getImageUrl(product: IProduct) {

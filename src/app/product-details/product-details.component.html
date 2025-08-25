@@ -20,6 +20,11 @@
         <span class="pill">Get yours today</span>
       }
     </p>
+
+    <div> Favorite Rating: {{favorite()}} </div>
+<!-- Note the "favorite" below is not sending a value of the signal like favorite(), it is sending the signal itself -->
+<!-- For two way binding, you use a signal instead of a value of the signal  -->
+    <bot-slider [(sliderValue)] = "favorite"/>
   </div>
 </div>
 <div class="price">

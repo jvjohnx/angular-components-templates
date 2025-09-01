@@ -45,4 +45,8 @@ export class ProductDetailsComponent {
   remove() {
     this.removeFromCart.emit(this.product());
   }
+
+  handleSliderChange(newValue: number) {
+    console.log("New Slider Value", newValue)
+  }
 }

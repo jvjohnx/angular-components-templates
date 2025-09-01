@@ -2,7 +2,7 @@
 @let discountedPrice = p.price * (1 - p.discount) | currency;
 
 <div class="details">
-  <img [src]="getImageUrl(p)" [alt]="p.name" />
+  <img ngSrc="getImageUrl(p)" [alt]="p.name" />
   <div>
     <h2>{{ p.name }}</h2>
     <p>{{ p.description }}</p>
@@ -24,7 +24,7 @@
     <div> Favorite Rating: {{favorite()}} </div>
 <!-- Note the "favorite" below is not sending a value of the signal like favorite(), it is sending the signal itself -->
 <!-- For two way binding, you use a signal instead of a value of the signal  -->
-    <bot-slider [(sliderValue)] = "favorite"/>
+    <bot-slider [(sliderValue)] = "favorite" (sliderValueChange)="handleSliderChange($event)" ) />
   </div>
 </div>
 <div class="price">
